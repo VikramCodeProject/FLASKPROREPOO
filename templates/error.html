@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Error {{ code }} - Flask Auth App{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="welcome-card">
+        <div class="text-center">
+            <h1 class="display-1" style="color: #dc3545;">{{ code }}</h1>
+            <p class="fs-3">{{ message }}</p>
+            <p class="text-muted mt-3">
+                {% if code == 404 %}
+                    The page you are looking for doesn't exist.
+                {% elif code == 500 %}
+                    Something went wrong on our end. Please try again later.
+                {% elif code == 403 %}
+                    You don't have permission to access this resource.
+                {% endif %}
+            </p>
+            <div class="mt-4">
+                <a href="{% if current_user.is_authenticated %}{{ url_for('dashboard') }}{% else %}{{ url_for('register') }}{% endif %}" class="btn btn-primary">
+                    Go Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

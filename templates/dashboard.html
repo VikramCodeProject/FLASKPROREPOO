@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Flask Auth App{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="welcome-card">
+        <h1>Welcome, {{ current_user.name }}!</h1>
+        <p class="text-muted mt-3">You have successfully logged in to your account.</p>
+        
+        <div class="user-info">
+            <p><span class="label-text">Name:</span> {{ current_user.name }}</p>
+            <p><span class="label-text">Email:</span> {{ current_user.email }}</p>
+            <p><span class="label-text">Member Since:</span> {{ current_user.created_at.strftime('%B %d, %Y') }}</p>
+        </div>
+        
+        <div class="mt-4">
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
