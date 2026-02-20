@@ -28,6 +28,8 @@
                     placeholder="Enter your full name"
                     value="{{ name or '' }}"
                     maxlength="120"
+                    required
+                    minlength="2"
                 >
                 <small class="form-text">At least 2 characters required</small>
             </div>
@@ -43,6 +45,7 @@
                     placeholder="Enter your email"
                     value="{{ email or '' }}"
                     maxlength="120"
+                    required
                 >
                 <small class="form-text">We'll never share your email</small>
             </div>
@@ -57,6 +60,8 @@
                     name="password" 
                     placeholder="Enter your password"
                     maxlength="255"
+                    required
+                    minlength="6"
                 >
                 <small class="form-text">At least 6 characters required</small>
             </div>
@@ -71,6 +76,8 @@
                     name="password_confirm" 
                     placeholder="Confirm your password"
                     maxlength="255"
+                    required
+                    minlength="6"
                 >
                 <small class="form-text">Passwords must match</small>
             </div>
